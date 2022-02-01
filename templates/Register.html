@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+        {% block content %}
+        <h1>REGISTER USER FORM</h1>
+        <form action="{{ url_for('register_form') }}" method="POST">
+            <div>
+                <p>Username  <input class="form-control" type="text" name="username" required /></p>
+            </div>
+            <div>
+                <p>Password  <input class="form-control" type="password" name="password" required></p>
+            </div>
+            <div>
+                <p>Confirm Password  <input class="form-control" type="password" name="confirm" required></p>
+            </div>
+            <div>
+                <p>isAdmin   <input type="checkbox" name="isadmin" value="1"></p>
+            </div>
+            <p><input class="form-control" type="submit" value="submit"></p>
+                {% if message['status'] == 'Failed' %}
+                <p>{{message['message']}}</p>
+            {% endif %}
+        </form>
+        {% endblock %}
